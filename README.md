@@ -1,20 +1,30 @@
 LaunchKit
 =========
 
-This repo contains an unbranded version of all the code that powers [LaunchKit](https://launchkit.io/). We have packaged things up to run easily with [Vagrant](https://www.vagrantup.com) and [Ansible](https://www.ansible.com), so getting started running LaunchKit's services locally should be fairly straightforward.
+This repo contains an unbranded version of all the code that once powered [LaunchKit](https://techcrunch.com/2015/03/11/for-those-about-to-launch-their-apps/). This notably includes **Screenshot Builder**, a web UI for creating App Store screenshots, and **Review Monitor**, which monitors Apple App Store review RSS feeds for new reviews and optionally notifies you about them.
+
+**DISCLAIMER** This code was originally a subscription-supported consumer product, serving millions of web requests across many servers. If you are not technical, it will probably be difficult to make this work.
+
+There's a bunch of other code in here for supporting the old [LaunchKit SDK](https://github.com/launchkit/launchkit-ios), in case you want to, for example, host a whitelabel in-app analytics platform or build a hosted server-configurable feature flags offering.
+
+## Overview
+
+We have packaged things up to run easily with [Vagrant](https://www.vagrantup.com) and [Ansible](https://www.ansible.com), so getting started running LaunchKit's services locally should be fairly straightforward in theory.
 
 * [Getting Started](#getting-started) → HOWTO install & run your own instance of LK.
 * [System Configuration](#system-configuration) → Easily editable settings to enable LK to work with third-party providers.
 * [Architecture Overview](#architecture-overview) → Overview of how LK works.
 * [Code Organization](#code-organization) → Overview of how code is organized in this repository.
 
-If anything in this guide is not accurate or if you run into any issues installing & running LaunchKit, please file a bug.
+If anything in this guide is not accurate or if you run into any issues installing & running LaunchKit, please send us a pull request. No one is actively addressing bug reports, but we will happily review and integrate pull requests.
 
 ## Getting Started
 
 Getting your LK instance up and running is fairly simple. This process has been tested thoroughly on **Mac OS 10.11**, but should also work on other systems compatible with Vagrant, VirtualBox and Ansible.
 
 ### STEP 1
+
+(OS X only -- on Linux & other systems you might need various other build tools in order to install Vagrant/Ansible.)
 
 Install **Xcode dev tools** if you don’t have them yet. Running `cc` from the command line on OS X Terminal should prompt you to install them.
 
@@ -55,7 +65,7 @@ Install **ansible**:
 
 Get the LaunchKit code and configure your LK settings.
 
-    $ git clone git@github.com:LaunchKit/LaunchKit.git
+    $ git clone https://github.com/LaunchKit/LaunchKit.git
     $ cd LaunchKit
 
 Edit your [System Configuration](#system-configuration) according to the various configuration detailed in the next section. (If you do this after the server is started, you will have to reboot.)
